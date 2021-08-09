@@ -1,10 +1,11 @@
 #pragma once
 #include <iostream>
+#include <vector>
+
 using namespace std;
 
-class vertex  //for vertices
+struct vertex  //for vertices
 {
-    public:
     int info;
     vertex* nextVertex;
     vertex* neighbour;
@@ -25,19 +26,31 @@ class vertex  //for vertices
 
 // };
 
-class graph
+struct graph
 {
-    public:
-    graph();
+    graph(bool isdirected);
+    
+    // Default is undirected:
+    graph(){
+        this->direction = false;
+    }
+
     bool isEmpty();
-    int addVertex(int data);
-    int addEdge(int data1,int data2);
-    //int vertices[50];
-    //int edge;
+    bool isDirected();
+    bool addVertex(vertex *vertex);
+    bool addEdge(vertex *vertex1, vertex *vertex2);
+    bool removeVertex(vertex remove);
+    bool removeEdge(vertex *vertex1, vertex *vertex2);
+    int numEdges();
+    int numVertex();
+    int indegree(vertex vertex);
+    int outdegree(vertex vertex);
+    int degree(vertex vertex);
+    vector<vertex> neighbours(vertex vertex);
 
     private:
-    //vertex *HEAD;
-    vertex * TOP;
+        bool direction;
+        // make a adjacencyList here!
 };
 
 
