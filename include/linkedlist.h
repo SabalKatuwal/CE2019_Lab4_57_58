@@ -1,27 +1,27 @@
 #pragma once
-#include <iostream>
-using namespace std;
 
-struct node{
-    int data;
-    node *next;
-    node() : next(nullptr){}
-    node(int data, node *next) : next(next), data(data) {}
+template <class T>
+class node{
+    public:
+        T data;
+        node<T> *next;
 };
 
 
-struct linkedList{
-    node *head;
-    node *tail;
-    linkedList(){
-        head = nullptr;
-        tail = nullptr;
-    }
-    void addToHead(int data);
-    bool isEmpty();
-    void insert(int data, node *d);
-    int removeFromHead();
-    int remove(int data);
-    bool search(int data);
-    void traverse();
+template <class T>
+class linkedlist{
+    public:
+        linkedlist();
+        bool isEmpty();
+        void addToHead(T data);
+        void addToTail(T data);
+        void add(T data, node<T> *predecesor);
+        int removeFromHead();
+        void removeFromTail();
+        void remove(T data);
+        bool retrieve(T data, node<T> *dataOutPtr);
+        void traverse();
+    protected:
+        node *head;
+        node *tail;
 };

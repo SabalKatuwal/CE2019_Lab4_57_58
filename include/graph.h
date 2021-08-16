@@ -1,57 +1,54 @@
 #pragma once
 #include <iostream>
 #include <vector>
+//#include "linkedlist.h"
 
 using namespace std;
 
-struct vertex  //for vertices
+
+template <class T>
+struct Edge  //for vertices
 {
-    int info;
-    vertex* nextVertex;
-    vertex* neighbour;
-
-    vertex(): nextVertex(nullptr),info(NULL), neighbour(nullptr){}
-    vertex(vertex * nextVertex, int info, vertex* neighbour): nextVertex(nextVertex), info(info), neighbour(neighbour){}
-
+    T from, to;
 };
 
-// class adjNode //for adjacent neighbours
-// {
-//     public:
-//     int info;
-//     adjNode* next;
 
-//     adjNode():next(nullptr){}
-//     adjNode(int info, adjNode* next):info(info), next(next) {}
-
-// };
-
-struct graph
-{
-    graph(bool isdirected);
-    
-    // Default is undirected:
-    graph(){
-        this->direction = false;
+template <class T>
+struct Graph
+{   
+    //if direction specified: 
+    Graph(bool isdirected){
+        this->direction = isdirected;
     }
-
+    
+    //if direction not specified:
+    Graph(){
+        this->direction = true;
+    }
     bool isEmpty();
     bool isDirected();
-    bool addVertex(vertex *vertex);
-    bool addEdge(vertex *vertex1, vertex *vertex2);
-    bool removeVertex(vertex remove);
-    bool removeEdge(vertex *vertex1, vertex *vertex2);
+    bool addVertex(T v);
+    bool addEdge(T v1, T v2);
+    bool removeVertex(T remove);
+    bool removeEdge(T v1, T v2);
     int numEdges();
     int numVertex();
-    int indegree(vertex vertex);
-    int outdegree(vertex vertex);
-    int degree(vertex vertex);
-    vector<vertex> neighbours(vertex vertex);
-
+    int indegree(T v1);
+    int outdegree(T v);
+    int degree(T v);
+    vector<T> neighbours(T v);
+    bool neighbour(T v1, T v2);
+    int getAdjListSize();
+    void printGraph();
+    
     private:
         bool direction;
-        // make a adjacencyList here!
+        vector<T> vertex;
+        vector<vector<T>> adjacencyList;
 };
+
+
+
 
 
 
