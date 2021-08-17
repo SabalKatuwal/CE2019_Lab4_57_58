@@ -5,7 +5,7 @@ using namespace std;
 
 int main()
 {
-    Graph<int> graph;
+    Graph<int> graph(7);
 
     //checking empty and directed:
     graph.isEmpty();
@@ -17,13 +17,15 @@ int main()
     graph.addVertex(2);
     graph.addVertex(3);
 
+    graph.isEmpty();
+    graph.printVertex();
+
     //Adding Edges:
-    graph.addEdge(0, 1);
-    graph.addEdge(1, 2);
-    graph.addEdge(2, 0);
-    graph.addEdge(2, 1);
-    graph.addEdge(3, 2);
+    vector<Edge<int>> edges =
+    {
+        {1, 2 }, {2, 1 }, {2, 3 }, {3, 2 }, {4, 1}, {1, 4}
+    };
+    graph.addEdge(edges);
 
-    graph.printGraph();
-
+    graph.printEdge();
 }
