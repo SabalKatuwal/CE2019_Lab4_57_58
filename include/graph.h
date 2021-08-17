@@ -48,6 +48,7 @@ struct Graph
     int getAdjListSize();
     void printEdge();
     void printVertex();
+    void printGraph();
     
     private:
         bool direction;
@@ -63,7 +64,6 @@ void Graph<T>::addEdge(vector<Edge<T>> const &edges){
         {
             // insert at the end
             adjacencyList[edge.from].push_back(edge.to);
-            cout<<"Edge added!"<<endl;
             if(direction==false){
                 adjacencyList[edge.to].push_back(edge.from);
             }
@@ -126,28 +126,27 @@ int Graph<T>::getAdjListSize(){
 
 
 template <class T>
-void Graph<T>::printEdge()
-{   
-    int N = getAdjListSize();
-    for (int i=0; i<N; i++)
-    {
-        //print the current vertex number
-        cout <<i<<"-->";
-
-        for (auto v: adjacencyList[i]){
-            cout << v << " ";
-        }
-    cout << endl;
-    }
-}
-
-
-template <class T>
 void Graph<T>::printVertex(){
     for(auto v : this->vertex){
         cout<<v<< " ";
     }
     cout <<endl;
+}
+
+
+template <class T>
+void Graph<T>::printGraph(){
+    int N = getAdjListSize();
+    for (auto &v : vertex)
+    {
+        //print the current vertex number
+        cout <<v<<"-->";
+
+        for (auto &e: adjacencyList[v]){
+            cout << e << " ";
+        }
+    cout << endl;   
+    }
 }
 
 
