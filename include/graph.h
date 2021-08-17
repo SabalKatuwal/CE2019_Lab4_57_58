@@ -49,7 +49,6 @@ struct Graph
     vector<T> neighbours(T v);
     bool neighbour(T v1, T v2);
     int getAdjListSize();
-    void printEdge();
     void printVertex();
     void printGraph();
     
@@ -111,7 +110,8 @@ void Graph<T>::removeVertex(T element){
         if(v==element){
             vertex.erase(std::remove(vertex.begin(), vertex.end(), v), vertex.end());
             adjacencyList[element].clear();
-        }else{
+        }
+        else{
             std::vector<T> elements;
             for(auto &c : adjacencyList[v]){
                 if(c != element){
@@ -159,6 +159,7 @@ void Graph<T>::printGraph(){
     }
 }
 
+
 template<class T>
 void Graph<T>::visualize() {
     for (int i = 0; i < adjacencyList.size(); ++i) {
@@ -172,6 +173,7 @@ void Graph<T>::visualize() {
 
 }
 
+
 template<class T>
 void Graph<T>::removeEdge(T v1, T v2) {
     std::vector<T> elements;
@@ -184,17 +186,17 @@ void Graph<T>::removeEdge(T v1, T v2) {
     for(auto& elem: elements){
         adjacencyList[v1].push_back(elem);
     }
-//
-//    if(direction == false)
-//        std::remove(adjacencyList[v2].begin(), adjacencyList[v2].end(), v1);
-
-//    for(auto i =adjacencyList[v1].begin(); i < adjacencyList[v1].end(); i++){
-//        if(i == v2){
-//            adjacencyList[v1].remove(i);
-//        }
-//    }
 }
 
+
+template<class T>
+int Graph<T>::numEdges(){
+    int count = 0;
+    for(auto &edges : adjacencyList){
+        count += edges.size();
+    }
+    return count;
+}
 
 
 

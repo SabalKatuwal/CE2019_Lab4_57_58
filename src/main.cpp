@@ -29,13 +29,15 @@ int main()
     //Adding Edges:
     vector<Edge<int>> edges =
     {
-        {1, 2 }, {2, 1 }, {2, 3 }, {3, 2 }, {4, 1}, {1, 4},
-        {10, 1}, {7, 10}, {10, 7}, {10, 2}, {10, 3}, {7, 1}
+        {1, 2 }, {2, 1 }, {2, 3 }, {3, 2 },{10, 1}, 
+        {7, 10}, {10, 7}, {10, 2}, {10, 3}, {7, 1}
     };
     graph.addEdge(edges);
 
     cout<<"Graph: "<<endl;
     graph.printGraph();
+
+    cout<<"The total number of edges: "<<graph.numEdges()<<endl;
 
     //Removing vertex and printing graph:
     graph.removeVertex(10);
@@ -46,4 +48,7 @@ int main()
     graph.removeEdge(2,3);
     cout<<"Graph:"<<endl;
     graph.printGraph();
+
+    //counting the number of edges:
+    cout<<"The total number of edges: "<<graph.numEdges()<<endl;
 }
