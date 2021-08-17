@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include <vector>
+#include <algorithm>
 //#include "linkedlist.h"
 
 using namespace std;
@@ -103,17 +104,12 @@ bool Graph<T>::isDirected(){
 
 
 template <class T>
-void Graph<T>::removeVertex(T remove){
-    // Removing edges associated to it:
-    for(auto &e : adjacencyList){
-        if(adjacencyList[e.from] == remove){
-            adjacencyList.remove(adjacencyList[e]);
-        }
-    }
-    // Removing vertex:
+void Graph<T>::removeVertex(T element){
+    // Removing vertex and respective edges alongside with it:
     for(auto &v : vertex){
-        if(v==remove){
-            vertex.remove(vertex[v]);
+        if(v==element){
+            vertex.erase(std::remove(vertex.begin(), vertex.end(), v), vertex.end());
+            // adjacencyList.erase(v);
         }
     }
 }

@@ -19,8 +19,19 @@ int main()
     graph.addVertex(10);
     graph.addVertex(7);
 
+
+    //checking vertex remove operation:
+    cout<<"Vertex:"<<endl;
+    graph.printVertex();
+
+    graph.removeVertex(0);
+
+    cout<<"Vertex:"<<endl;
+    graph.printVertex();
+
     graph.isEmpty();
     graph.printVertex();
+
 
     //Adding Edges:
     vector<Edge<int>> edges =
