@@ -32,6 +32,27 @@ struct Graph
         adjacencyList.resize(initialSize);
     }
 
+    //Works for integers only:
+    Graph(int initial_size, bool isdirected, bool randomGenerate){
+        this->direction = isdirected;
+        this->initialSize = initial_size;
+        this->randomGenerate = randomGenerate;
+        adjacencyList.resize(initialSize);
+        if(randomGenerate==true){
+            for (unsigned int i=0; i<=initialSize; ++i){
+                vertex.push_back(i);    
+            } 
+
+            int random_no_of_edges = rand()%initialSize + rand()%initialSize;
+            int random_vertex = 0;
+            int random_connection = 0;
+            for(unsigned int i = 0; i <=random_no_of_edges; i++){
+                random_vertex = rand()%initialSize;
+                random_connection = rand()%initialSize;
+                adjacencyList[random_vertex].push_back(random_connection);  
+            }
+        }
+    }
 
     bool isEmpty();
     bool isDirected();
@@ -46,8 +67,8 @@ struct Graph
     int indegree(T v1);
     int outdegree(T v);
     int degree(T v);
-    vector<T> neighbours(T v);
-    //void neighbours(T v);
+    //vector<T> neighbours(T v);
+    void neighbours(T v);
 
     bool neighbour(T v1, T v2);
     int getAdjListSize();
@@ -59,6 +80,7 @@ struct Graph
         vector<T> vertex;
         vector<vector<T> > adjacencyList;
         int initialSize;
+        bool randomGenerate;
 };
 
 
@@ -233,17 +255,18 @@ int Graph<T>::indegree(T v1){
 
 template <class T>
 int Graph<T>::degree(T v){
-    return (indgree(T v)+outdegree(T v))
+    return (indegree(v)+outdegree(v));
 }
 
 
-// template <class T>
-// vector<T> Graph<T>::neighbours(T v){
-//     for (auto &e: adjacencyList[v]){
-//             cout << e << " ";
-//         }
+template <class T>
+void Graph<T>::neighbours(T v){
+    for (auto &e: adjacencyList[v]){
+            cout << e << " ";
+        }
+    cout<<endl;
     
-// }
+}
 
 template <class T>
 bool Graph<T>::neighbour(T v1, T v2){

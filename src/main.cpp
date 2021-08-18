@@ -47,7 +47,7 @@ int main()
     cout<<"the degree of 1 is : "<<graph.degree(1)<<endl;
     
 
-    //graph.neighbours(10);
+    graph.neighbours(10);
     graph.neighbour(1,2);
     graph.neighbour(1,7);
     graph.neighbour(0,1);
@@ -65,4 +65,10 @@ int main()
 
     //counting the number of edges:
     cout<<"The total number of edges: "<<graph.numEdges()<<endl;
+
+
+    //All about random graphs
+    cout<<"Random Graph: "<<endl;
+    Graph<int> randomGraph(15, true, true);
+    randomGraph.printGraph();
 }
