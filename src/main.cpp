@@ -43,6 +43,16 @@ int main()
     cout<<"the outdegree of 2 is : "<<graph.outdegree(2)<<endl;
     cout<<"the outdegree of 10 is : "<<graph.outdegree(10)<<endl;
 
+    cout<<"the indegree of 1 is : "<<graph.indegree(1)<<endl;
+    cout<<"the degree of 1 is : "<<graph.degree(1)<<endl;
+    
+
+    //graph.neighbours(10);
+    graph.neighbour(1,2);
+    graph.neighbour(1,7);
+    graph.neighbour(0,1);
+
+
     //Removing vertex and printing graph:
     graph.removeVertex(10);
     cout<<"Graph:"<<endl;

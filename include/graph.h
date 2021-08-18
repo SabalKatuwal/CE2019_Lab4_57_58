@@ -47,6 +47,8 @@ struct Graph
     int outdegree(T v);
     int degree(T v);
     vector<T> neighbours(T v);
+    //void neighbours(T v);
+
     bool neighbour(T v1, T v2);
     int getAdjListSize();
     void printVertex();
@@ -212,5 +214,63 @@ int Graph<T>::outdegree(T v){
     return count;
 }
 
+template <class T>
+int Graph<T>::indegree(T v1){
+    int count=0;
+    int N = getAdjListSize();
+    for (auto &v : vertex)
+    {
+        for (auto &e: adjacencyList[v]){
+            if(e==v1)
+            {
+                count++;
+            }
+        }  
+    }
+    return count;
+}
 
 
+template <class T>
+int Graph<T>::degree(T v){
+    return (indgree(T v)+outdegree(T v))
+}
+
+
+// template <class T>
+// vector<T> Graph<T>::neighbours(T v){
+//     for (auto &e: adjacencyList[v]){
+//             cout << e << " ";
+//         }
+    
+// }
+
+template <class T>
+bool Graph<T>::neighbour(T v1, T v2){
+    int a=0;
+    for (auto &e: adjacencyList[v1]){
+            if(e==v2)
+            {
+                a=1;
+            }
+            else
+            {a=0;}
+    }       
+    for (auto &e: adjacencyList[v2]){
+            if(e==v1)
+            {
+                a=a+1;
+            }   
+            else{a=a+0;} 
+    }
+    if(a==0)
+    {
+        cout<<"Not neighbour"<<endl;
+        return false;
+    }
+    else
+    {
+        cout<<"They are neighbours to each other"<<endl;
+        return true;
+    }
+}
