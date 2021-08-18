@@ -40,16 +40,19 @@ int main()
     cout<<"The total number of edges: "<<graph.numEdges()<<endl;
     cout<<"The total number of vertex: "<<graph.numVertex()<<endl;
 
+    //Number of Outdegree
     cout<<"the outdegree of 2 is : "<<graph.outdegree(2)<<endl;
     cout<<"the outdegree of 10 is : "<<graph.outdegree(10)<<endl;
 
+    //Number of Indegree
     cout<<"the indegree of 1 is : "<<graph.indegree(1)<<endl;
     cout<<"the degree of 1 is : "<<graph.degree(1)<<endl;
     
-
+    //Display neighbours
     graph.neighbours(10);
+
+    //check Neighbours or not
     graph.neighbour(1,2);
-    graph.neighbour(1,7);
     graph.neighbour(0,1);
 
 
@@ -69,6 +72,6 @@ int main()
 
     //All about random graphs
     cout<<"Random Graph: "<<endl;
-    Graph<int> randomGraph(15, true, true);
+    Graph<int> randomGraph(12, true, true);
     randomGraph.printGraph();
 }
