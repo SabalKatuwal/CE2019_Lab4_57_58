@@ -55,13 +55,13 @@ struct Graph
     private:
         bool direction;
         vector<T> vertex;
-        vector<vector<T>> adjacencyList;
+        vector<vector<T> > adjacencyList;
         int initialSize;
 };
 
 
 template <class T>
-void Graph<T>::addEdge(vector<Edge<T>> const &edges){
+void Graph<T>::addEdge(vector<Edge<T> > const &edges){
     for (auto &edge: edges)
         {
             // insert at the end
@@ -198,7 +198,10 @@ int Graph<T>::numEdges(){
     return count;
 }
 
-
+template <class T>
+int Graph<T>::numVertex(){
+    return vertex.size();
+}
 
 
 
