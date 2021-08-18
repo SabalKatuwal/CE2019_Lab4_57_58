@@ -59,7 +59,6 @@ struct Graph
     void addVertex(T v);
     void addEdge(vector<Edge<T>> const &edges);
     void removeVertex(T remove);
-
     void visualize();
     void removeEdge(T v1, T v2);
     int numEdges();
@@ -67,9 +66,7 @@ struct Graph
     int indegree(T v1);
     int outdegree(T v);
     int degree(T v);
-    //vector<T> neighbours(T v);
     void neighbours(T v);
-
     bool neighbour(T v1, T v2);
     int getAdjListSize();
     void printVertex();
@@ -222,10 +219,12 @@ int Graph<T>::numEdges(){
     return count;
 }
 
+
 template <class T>
 int Graph<T>::numVertex(){
     return vertex.size();
 }
+
 
 template <class T>
 int Graph<T>::outdegree(T v){
@@ -235,6 +234,7 @@ int Graph<T>::outdegree(T v){
         }
     return count;
 }
+
 
 template <class T>
 int Graph<T>::indegree(T v1){
@@ -267,6 +267,7 @@ void Graph<T>::neighbours(T v){
     cout<<endl;
     
 }
+
 
 template <class T>
 bool Graph<T>::neighbour(T v1, T v2){
