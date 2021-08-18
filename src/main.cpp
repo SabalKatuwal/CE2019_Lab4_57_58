@@ -12,13 +12,11 @@ int main()
     graph.isDirected();
 
     //Adding vertex: 
-    graph.addVertex(0);
     graph.addVertex(1);
     graph.addVertex(2);
     graph.addVertex(3);
     graph.addVertex(10);
     graph.addVertex(7);
-
 
     //checking vertex remove operation:
     cout<<"Vertex:"<<endl;
@@ -37,6 +35,7 @@ int main()
     cout<<"Graph: "<<endl;
     graph.printGraph();
 
+    //implement of number of vertex and edge
     cout<<"The total number of edges: "<<graph.numEdges()<<endl;
     cout<<"The total number of vertex: "<<graph.numVertex()<<endl;
 
@@ -49,11 +48,12 @@ int main()
     cout<<"the degree of 1 is : "<<graph.degree(1)<<endl;
     
     //Display neighbours
+    cout<<"The neighbour of 10 are"<<endl;
     graph.neighbours(10);
 
     //check Neighbours or not
     graph.neighbour(1,2);
-    graph.neighbour(0,1);
+    graph.neighbour(1,3);
 
 
     //Removing vertex and printing graph:
