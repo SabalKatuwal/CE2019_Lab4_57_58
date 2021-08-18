@@ -40,6 +40,9 @@ int main()
     cout<<"The total number of edges: "<<graph.numEdges()<<endl;
     cout<<"The total number of vertex: "<<graph.numVertex()<<endl;
 
+    cout<<"the outdegree of 2 is : "<<graph.outdegree(2)<<endl;
+    cout<<"the outdegree of 10 is : "<<graph.outdegree(10)<<endl;
+
     //Removing vertex and printing graph:
     graph.removeVertex(10);
     cout<<"Graph:"<<endl;

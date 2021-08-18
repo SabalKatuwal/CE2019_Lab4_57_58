@@ -203,7 +203,14 @@ int Graph<T>::numVertex(){
     return vertex.size();
 }
 
-
+template <class T>
+int Graph<T>::outdegree(T v){
+    int count=0;
+    for (auto &e: adjacencyList[v]){
+            count++;
+        }
+    return count;
+}
 
 
 
